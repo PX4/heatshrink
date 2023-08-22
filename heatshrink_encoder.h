@@ -6,6 +6,10 @@
 #include "heatshrink_common.h"
 #include "heatshrink_config.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum {
     HSER_SINK_OK,               /* data sunk into input buffer */
     HSER_SINK_ERROR_NULL=-1,    /* NULL argument */
@@ -106,4 +110,7 @@ HSE_poll_res heatshrink_encoder_poll(heatshrink_encoder *hse,
  * call heatshrink_encoder_poll and repeat. */
 HSE_finish_res heatshrink_encoder_finish(heatshrink_encoder *hse);
 
+#ifdef __cplusplus
+}
+#endif
 #endif
