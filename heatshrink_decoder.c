@@ -264,7 +264,9 @@ static HSD_state st_yield_backref(heatshrink_decoder *hsd,
     size_t count = oi->buf_size - *oi->output_size;
     if (count > 0) {
         size_t i = 0;
-        if (hsd->output_count < count) count = hsd->output_count;
+        if (hsd->output_count < count) {
+			count = hsd->output_count;
+		}
         uint8_t *buf = &hsd->buffers[HEATSHRINK_DECODER_INPUT_BUFFER_SIZE(hsd)];
         uint16_t mask = (1 << HEATSHRINK_DECODER_WINDOW_BITS(hsd)) - 1;
         uint16_t neg_offset = hsd->output_index;
